@@ -1,0 +1,24 @@
+{
+  "name": "YourArch Companion",
+  "description": "Ingestor extension for YourArch",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_title": "YourArch Companion",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "inject.js"
+      ],
+      "all_frames": true
+    }
+  ]
+}
