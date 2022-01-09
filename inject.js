@@ -29,7 +29,7 @@ function scrapeHistory() {
     const videoTitle = e.querySelector('#video-title > yt-formatted-string').textContent
     const videoId = e.querySelector('#video-title').href.replace('https://www.youtube.com/watch?v=', '').split('&')[0]
     const channelId = e.querySelector('#channel-name #text a').href.replace('https://www.youtube.com', '')
-    return { videoTitle, videoId, channelId}
+    return { videoTitle, videoId, channelId }
   })
 }
 
@@ -38,7 +38,7 @@ function scrapeHistory() {
  * @param {{videoTitle: string, videoId: any, channelId: any}[]} items 
  */
 async function sendItemsToBackend(items) {
-  return fetch(await getBackendUrl(), {
+  return fetch(`${await getBackendUrl()}/api/items`, {
     mode: 'cors',
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
